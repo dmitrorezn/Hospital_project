@@ -1,5 +1,5 @@
-﻿using DAL.Entities;
-using System.Data.Entity;
+﻿using System.Data.Entity;
+using BLL.Entities;
 
 
 namespace DAL

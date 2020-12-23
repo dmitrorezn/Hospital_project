@@ -1,6 +1,8 @@
-﻿using BLL.Interfaces;
-using BLL.Repositories;
-using DAL;
+﻿using DAL;
+using DAL.Repositories;
+using BLL;
+using BLL.Entities;
+using BLL.Interfaces;
 using Ninject;
 using System;
 using System.Collections.Generic;
@@ -10,6 +12,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.Security;
+//using DoctorRepository = DAL.Repositories.DoctorRepository;
 
 namespace Web
 {
@@ -28,11 +31,11 @@ namespace Web
         }
         private void AddBindings()
         {
-            kernel.Bind<IDoctorRepository>().To<DoctorRepository>();
-            kernel.Bind<IPatientRepository>().To<PatientRepository>();
+            kernel.Bind<IDoctorRepository>().To<DoctorRepository>();     
             kernel.Bind<ISpecializationRepository>().To<SpecializationRepository>();
             kernel.Bind<IVisitRepository>().To<VisitRepository>();
             kernel.Bind<IVisitResultRepository>().To<VisitResultRepository>();
+            kernel.Bind<IPatientRepository>().To<PatientRepository>();
 
             kernel.Bind<HContext>().ToSelf().WithConstructorArgument("Context",
                 ConfigurationManager.ConnectionStrings[0].ConnectionString);

@@ -34,12 +34,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -52,23 +46,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataManager.cs" />
+    <Compile Include="Entities\Doctor.cs" />
+    <Compile Include="Entities\Patient.cs" />
+    <Compile Include="Entities\Specialization.cs" />
+    <Compile Include="Entities\Visit.cs" />
+    <Compile Include="Entities\VisitResult.cs" />
     <Compile Include="Interfaces\IDoctorRepository.cs" />
     <Compile Include="Interfaces\IPatientRepository.cs" />
     <Compile Include="Interfaces\ISpecializationRepository.cs" />
     <Compile Include="Interfaces\IVisitRepository.cs" />
     <Compile Include="Interfaces\IVisitResultRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\DoctorRepository.cs" />
-    <Compile Include="Repositories\PatientRepository.cs" />
-    <Compile Include="Repositories\SpecializationRepository.cs" />
-    <Compile Include="Repositories\VisitRepository.cs" />
-    <Compile Include="Repositories\VisitResultRepository.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DAL\DAL.csproj">
-      <Project>{cccef994-72a2-4f2c-8e3b-6ce5d0be4b4b}</Project>
-      <Name>DAL</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
