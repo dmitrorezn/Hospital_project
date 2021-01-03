@@ -1,4 +1,5 @@
-﻿using BLL;
+﻿using DAL;
+using BLL;
 using BLL.Entities;
 using System;
 using System.Collections.Generic;
@@ -20,16 +21,10 @@ namespace Web.Controllers
         public ActionResult Index()
         {
             DoctorViewModel doctorViewModel = new DoctorViewModel();
-            IEnumerable<Doctor> allDoctors = dataManager.Doctors.GetDoctors();
 
-            doctorViewModel.Doctor = allDoctors;
-
-            var specializatons = dataManager.Specializations.GetSpecializations();
-
-            var Specs = from d in allDoctors
-                        join t in specializatons on d.SpecializationId equals t.SpecializationId
-                        select t.Name;
-            doctorViewModel.connectedSpecializations = Specs.ToList();
+            List<string> specs = dataManager.Doctors.GetConnectedSpecializations();
+            doctorViewModel.Doctor = dataManager.Doctors.GetDoctors();
+            doctorViewModel.connectedSpecializations = specs;
             
             return View(doctorViewModel);
         }
@@ -41,6 +36,7 @@ namespace Web.Controllers
             
             return View(doctorViewModel);
         }
+
         
         [HttpPost]
         public ActionResult DoctorsVisits(DoctorViewModel model)

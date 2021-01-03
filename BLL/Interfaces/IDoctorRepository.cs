@@ -11,5 +11,8 @@ namespace BLL.Interfaces
     {
         IEnumerable<Doctor> GetDoctors();
         IEnumerable<Doctor> GetDoctorsBySpecialization(int id);
+        List<string> GetDoctorsNames();
+        List<string> GetDoctorsSurnames();
+        List<string> GetConnectedSpecializations();
     }
 }

@@ -36,6 +36,7 @@ namespace Web
             kernel.Bind<IVisitRepository>().To<VisitRepository>();
             kernel.Bind<IVisitResultRepository>().To<VisitResultRepository>();
             kernel.Bind<IPatientRepository>().To<PatientRepository>();
+            kernel.Bind<IDataManager>().To<DataManager>();
 
             kernel.Bind<HContext>().ToSelf().WithConstructorArgument("Context",
                 ConfigurationManager.ConnectionStrings[0].ConnectionString);

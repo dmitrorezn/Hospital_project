@@ -66,6 +66,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataManager.cs" />
     <Compile Include="HContext.cs" />
     <Compile Include="Migrations\201912222141504_init.cs" />
     <Compile Include="Migrations\201912222141504_init.designer.cs">

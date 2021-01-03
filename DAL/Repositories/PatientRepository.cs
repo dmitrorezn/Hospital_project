@@ -29,5 +29,27 @@ namespace DAL.Repositories
         {
             return context.Patients;
         }
+
+        public List<string> GetPatientsSurnames()
+        {
+            var visits = context.Visits;
+            var patients = context.Patients;
+            var patientsurnames = from x in visits
+                                  join t in patients on x.PatientId equals t.PatientId
+                                  select t.Surname;
+            var list = patientsurnames.ToList();
+            return list;
+        }
+
+        public List<string> GetPatientsNames() 
+        {
+            var visits = context.Visits;
+            var patients = context.Patients;
+            var patientnames = from x in visits
+                               join t in patients on x.PatientId equals t.PatientId
+                               select t.Name;
+            var names = patientnames.ToList();
+            return names;
+        }
     }
 }

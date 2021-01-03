@@ -45,12 +45,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataManager.cs" />
     <Compile Include="Entities\Doctor.cs" />
     <Compile Include="Entities\Patient.cs" />
     <Compile Include="Entities\Specialization.cs" />
     <Compile Include="Entities\Visit.cs" />
     <Compile Include="Entities\VisitResult.cs" />
+    <Compile Include="Interfaces\IDataManager .cs" />
     <Compile Include="Interfaces\IDoctorRepository.cs" />
     <Compile Include="Interfaces\IPatientRepository.cs" />
     <Compile Include="Interfaces\ISpecializationRepository.cs" />

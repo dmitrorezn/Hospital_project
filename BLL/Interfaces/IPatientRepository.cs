@@ -10,6 +10,9 @@ namespace BLL.Interfaces
     public interface IPatientRepository
     {
         IEnumerable<Patient> GetPatients();
+        List<string> GetPatientsSurnames();
+        List<string> GetPatientsNames();
         void AddPatient(Patient patient);
+
     }
 }

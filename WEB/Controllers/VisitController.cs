@@ -1,4 +1,5 @@
-﻿using BLL;
+﻿using DAL;
+using BLL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +16,7 @@ namespace Web.Controllers
         {
             dataManager = data;
         }
-        // GET: Visi
+ 
         public ActionResult Index()
         {
             return View();

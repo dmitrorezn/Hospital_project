@@ -1,4 +1,5 @@
-﻿using BLL;
+﻿using DAL;
+using BLL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,28 +22,17 @@ namespace Web.Controllers
             var visits = dataManager.Visits.GetVisits();
             visitsViewModel.Visits = visits;
 
-            var doctors = dataManager.Doctors.GetDoctors();
-            var patients = dataManager.Patients.GetPatients();
+            var doctornames = dataManager.Doctors.GetDoctorsNames();
+            visitsViewModel.DoctorName = doctornames;
 
-            var doctornames = from x in visits
-                                         join t in doctors on x.DoctorId equals t.DoctorId
-                                         select t.Name;
-            visitsViewModel.DoctorName = doctornames.ToList();
+            var doctorsurnames = dataManager.Doctors.GetDoctorsSurnames();
+            visitsViewModel.DoctorSurname = doctorsurnames;
 
-            var doctorsurnames = from x in visits
-                              join t in doctors on x.DoctorId equals t.DoctorId
-                              select t.Surname;
-            visitsViewModel.DoctorSurname = doctorsurnames.ToList();
+            var patientnames = dataManager.Patients.GetPatientsNames();
+            visitsViewModel.PatientName = patientnames;
 
-            var patientnames = from x in visits
-                              join t in patients on x.PatientId equals t.PatientId
-                              select t.Name;
-            visitsViewModel.PatientName = patientnames.ToList();
-
-            var patientsurnames = from x in visits
-                               join t in patients on x.PatientId equals t.PatientId
-                               select t.Surname;
-            visitsViewModel.PatientSurname = patientsurnames.ToList();
+            var patientsurnames = dataManager.Patients.GetPatientsSurnames();
+            visitsViewModel.PatientSurname = patientsurnames;
 
             return View(visitsViewModel);
         }
