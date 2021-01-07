@@ -6,7 +6,6 @@ namespace BLL.Entities
     public class Specialization
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int SpecializationId { get; set; }
         public string Name { get; set; }
     }

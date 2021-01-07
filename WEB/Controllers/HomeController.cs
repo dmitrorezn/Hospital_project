@@ -22,17 +22,9 @@ namespace Web.Controllers
             var visits = dataManager.Visits.GetVisits();
             visitsViewModel.Visits = visits;
 
-            var doctornames = dataManager.Doctors.GetDoctorsNames();
-            visitsViewModel.DoctorName = doctornames;
-
-            var doctorsurnames = dataManager.Doctors.GetDoctorsSurnames();
-            visitsViewModel.DoctorSurname = doctorsurnames;
-
-            var patientnames = dataManager.Patients.GetPatientsNames();
-            visitsViewModel.PatientName = patientnames;
-
-            var patientsurnames = dataManager.Patients.GetPatientsSurnames();
-            visitsViewModel.PatientSurname = patientsurnames;
+            var dto = dataManager.Patients.GetDocsPatientsDTO();
+            
+            visitsViewModel.DocsPatientsDTO = dto;
 
             return View(visitsViewModel);
         }

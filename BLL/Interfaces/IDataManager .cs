@@ -8,5 +8,10 @@ namespace BLL.Interfaces
 {
     public interface IDataManager
     {
+        IDoctorRepository Doctors { get; }
+        IPatientRepository Patients { get; }
+        ISpecializationRepository Specializations { get; }
+        IVisitRepository Visits { get; }
+        IVisitResultRepository VisitResults { get; }
     }
 }

@@ -6,11 +6,9 @@ namespace BLL.Entities
     public class Doctor
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int DoctorId { get; set; }
-        public string Name { get; set; }
-        public string Surname { get; set; }
+        public string DName { get; set; }
+        public string DSurname { get; set; }
         public int SpecializationId { get; set; }
-
     }
 }

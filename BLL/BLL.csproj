@@ -45,6 +45,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTO1\DoctorDTO.cs" />
+    <Compile Include="DTO1\DocsPatientsDTO.cs" />
     <Compile Include="Entities\Doctor.cs" />
     <Compile Include="Entities\Patient.cs" />
     <Compile Include="Entities\Specialization.cs" />

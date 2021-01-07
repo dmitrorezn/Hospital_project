@@ -1,4 +1,5 @@
 ﻿using BLL.Entities;
+using BLL.DTO1;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +10,6 @@ namespace Web.Models
     public class VisitsViewModel
     {
         public IEnumerable<Visit> Visits { get; set; }
-        public List<string> DoctorName { get; set; }
-        public List<string> DoctorSurname { get; set; }
-        public List<string> PatientName { get; set; }
-        public List<string> PatientSurname { get; set; }
+        public List<DocsPatientsDTO> DocsPatientsDTO { get; set; }
     }
 }

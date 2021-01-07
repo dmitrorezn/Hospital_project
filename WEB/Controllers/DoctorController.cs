@@ -1,5 +1,5 @@
 ﻿using DAL;
-using BLL;
+using BLL.DTO1;
 using BLL.Entities;
 using System;
 using System.Collections.Generic;
@@ -18,16 +18,18 @@ namespace Web.Controllers
             dataManager = dManager;
         }
         // GET: Doctor
+        [HttpGet]
         public ActionResult Index()
         {
             DoctorViewModel doctorViewModel = new DoctorViewModel();
 
-            List<string> specs = dataManager.Doctors.GetConnectedSpecializations();
-            doctorViewModel.Doctor = dataManager.Doctors.GetDoctors();
-            doctorViewModel.connectedSpecializations = specs;
+            List<DoctorDTO> doctorsDTO = dataManager.Doctors.GetConnectedSpecializations();
+
+            doctorViewModel.DoctorsDTO = doctorsDTO;
             
             return View(doctorViewModel);
         }
+
         [HttpGet]
         public ActionResult DoctorsVisits(int id)
         {

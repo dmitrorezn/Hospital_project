@@ -7,7 +7,6 @@ namespace BLL.Entities
     public class Visit
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int VisitId { get; set; }
         public int PatientId { get; set; }
         public int DoctorId { get; set; }

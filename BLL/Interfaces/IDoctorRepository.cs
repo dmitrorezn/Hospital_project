@@ -1,4 +1,5 @@
 ﻿using BLL.Entities;
+using BLL.DTO1;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,8 +12,7 @@ namespace BLL.Interfaces
     {
         IEnumerable<Doctor> GetDoctors();
         IEnumerable<Doctor> GetDoctorsBySpecialization(int id);
-        List<string> GetDoctorsNames();
-        List<string> GetDoctorsSurnames();
-        List<string> GetConnectedSpecializations();
+        List<DoctorDTO> GetConnectedSpecializations();
+        List<DoctorDTO> GetDoctorsList();
     }
 }

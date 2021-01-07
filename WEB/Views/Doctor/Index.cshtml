@@ -24,11 +24,7 @@
             
         </td>
     </tr>
-    @{
-        int i = 0;
-
-    }
-    @foreach (Doctor doctor in Model.Doctor)
+    @foreach (var doctor in Model.DoctorsDTO)
     {
         <tr>
             <td>
@@ -41,12 +37,11 @@
                 @doctor.Surname
             </td>
             <td>
-                @Model.connectedSpecializations[i]
+                @doctor.Specization
             </td>
             <td>
                 @Html.ActionLink("Click here", "DoctorsVisits", new { id = doctor.DoctorId})
             </td>
         </tr>
-        i++;
     }
 </table>

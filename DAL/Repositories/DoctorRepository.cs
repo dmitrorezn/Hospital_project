@@ -1,10 +1,10 @@
 ﻿using BLL.Interfaces;
 using BLL.Entities;
-using System;
+using BLL.DTO1;
+using BLL;
+using DAL;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DAL.Repositories
 {
@@ -27,39 +27,49 @@ namespace DAL.Repositories
             return context.Doctors.Where(x => x.SpecializationId == id);
         }
 
-        public List<string> GetDoctorsNames()
+        public List<DoctorDTO> GetDoctorsList()
         {
+            List<DoctorDTO> doctorsDtoList = new List<DoctorDTO>();
             var visits = context.Visits;
             var doctors = context.Doctors;
-            var doctornames = from x in visits
-                              join t in doctors on x.DoctorId equals t.DoctorId
-                              select t.Name;
-            var names = doctornames.ToList();
-            return names;
-        }
-        
-        public List<string> GetDoctorsSurnames()
-        {
-            var visits = context.Visits;
-            var doctors = context.Doctors;
-            var doctornames = from x in visits
-                              join t in doctors on x.DoctorId equals t.DoctorId
-                              select t.Surname ;
-            var Surname = doctornames.ToList();
-            return Surname;
+            var doctorsDto = from x in visits
+                             join t in doctors on x.DoctorId equals t.DoctorId
+                             select new { t.DoctorId, t.DName, t.DSurname };
+
+            foreach(var item in doctorsDto)
+            {
+                doctorsDtoList.Add(new DoctorDTO {
+                    DoctorId = item.DoctorId,
+                    Name = item.DName,
+                    Surname = item.DSurname,
+                    Specization = "",
+                });
+            }
+
+            return doctorsDtoList;
         }
 
-        public List<string> GetConnectedSpecializations()
+        public List<DoctorDTO> GetConnectedSpecializations()
         {
+            List<DoctorDTO> doctorsDtoList = new List<DoctorDTO>();
+
             var specializatons = context.Specializations;
             var allDoctors = context.Doctors;
-            var _Specs = from d in allDoctors
+            var doctorsDto = from d in allDoctors
                          join t in specializatons on d.SpecializationId equals t.SpecializationId
-                         select t.Name;
+                         select new { d.DoctorId, d.DName, d.DSurname, t.Name };
 
-            var specsNames = _Specs.ToList();
+            foreach (var item in doctorsDto)
+            {
+                doctorsDtoList.Add(new DoctorDTO {
+                    DoctorId = item.DoctorId,
+                    Name = item.DName,
+                    Surname = item.DSurname,
+                    Specization = item.Name,
+                });
+            }
 
-            return specsNames;
+            return doctorsDtoList;
         }
     }
 }

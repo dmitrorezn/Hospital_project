@@ -1,4 +1,5 @@
 ﻿using BLL.Entities;
+using BLL.DTO1;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,9 +11,7 @@ namespace BLL.Interfaces
     public interface IPatientRepository
     {
         IEnumerable<Patient> GetPatients();
-        List<string> GetPatientsSurnames();
-        List<string> GetPatientsNames();
+        List<DocsPatientsDTO> GetDocsPatientsDTO();
         void AddPatient(Patient patient);
-
     }
 }
